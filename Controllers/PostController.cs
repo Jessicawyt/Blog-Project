@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using template_csharp_blog.Models;
 
 namespace template_csharp_blog.Controllers
 {
@@ -21,10 +22,24 @@ namespace template_csharp_blog.Controllers
             return View(_context.Posts.Where(post => post.CategoryId == categoryId).ToList());
         }
 
-
         public IActionResult Detail(int id)
         {
             return View(_context.Posts.Find(id));
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Post post)
+        {
+            _context.Posts.Add(post);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+     
     }
 }
