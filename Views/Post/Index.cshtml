@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Post>
+
+@{
+
+}
+
+
+@foreach(Post post in Model)
+{
+    <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
+}

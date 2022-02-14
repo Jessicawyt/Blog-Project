@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Category>
+
+@{
+
+}
+
+
+<ul>@foreach(Category ctg in Model)
+    {
+       <li>@Html.ActionLink(ctg.Name,"ChosenIndex", "Post", new { categoryId = ctg.Id})</li>
+    }
+</ul>
