@@ -4,9 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/blog.css" />
 </head>
 <body>
     <nav>
+        <h1>Blog It</h1>
         <ul>
             <li>@Html.ActionLink("Categories", "Index", "Category")</li>
             <li>@Html.ActionLink("Posts", "Index", "Post")</li>
@@ -17,5 +19,9 @@
     <div>
         @RenderBody()
     </div>
+
+    <footer>
+
+    </footer>
 </body>
 </html>

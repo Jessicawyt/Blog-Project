@@ -4,8 +4,16 @@
 
 }
 
-
+<div class="posts-container">
 @foreach(Post post in Model)
 {
-    <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
+    <section>
+        <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
+        <span>@post.PublishDate</span><br>
+        <span>@post.Author</span><br>
+        <p>@post.Body</p>
+    </section>
+    
+
 }
+</div>

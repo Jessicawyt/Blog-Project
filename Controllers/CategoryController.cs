@@ -16,9 +16,9 @@ namespace template_csharp_blog.Controllers
             return View(_context.Categories.ToList());
         }
 
-        //public IActionResult Detail(int id)
-        //{
-        //    return View(_context.Categories.Find(id));
-        //}
+        public IActionResult Detail(int id)
+        {
+            return View(_context.Categories.Find(id));
+        }
     }
 }
