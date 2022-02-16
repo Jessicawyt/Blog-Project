@@ -7,11 +7,13 @@
 <div class="posts-container">
 @foreach(Post post in Model)
 {
-    <section>
+    <section class="single-post">
         <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
         <span>@post.PublishDate</span><br>
         <span>@post.Author</span><br>
         <a href="/Post/Edit/@post.Id">Edit</a>
+        <span> | </span>
+        <a href="/Post/Delete/@post.Id">Delete</a>
         <p>@post.Body</p>
     </section>
     

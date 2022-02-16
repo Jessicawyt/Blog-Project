@@ -5,8 +5,9 @@
 }
 
 
-<ul>@foreach(Category ctg in Model)
+<section class="category-list">@foreach(Category ctg in Model)
     {
-       <li>@Html.ActionLink(ctg.Name,"ChosenIndex", "Post", new {categoryId = ctg.Id})</li>
+       <h2>@Html.ActionLink(ctg.Name,"ChosenIndex", "Post", new {categoryId = ctg.Id})</h2>
     }
-</ul>
+    <h2>@Html.ActionLink("Add a new Category","Create")</h2>
+</section>

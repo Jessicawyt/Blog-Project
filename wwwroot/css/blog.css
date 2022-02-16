@@ -2,15 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black;
+    
 }
 
 body {
-    /* background-color:azure; */
     color: black;
 }
 
 nav{
+    
     margin:10vh 25vw;
     display: flex;
     flex-direction: row;
@@ -20,15 +20,16 @@ nav{
 }
 
 nav ul {
+    
     padding: 3px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
     align-items: center;
-    
 }
 
 li {
+    color: black;
     list-style-type: none;
     margin: .8rem;
     text-decoration: none;
@@ -41,7 +42,7 @@ li {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-section {
+.single-post {
     border-style: solid;
     border-width: 0;
     border-radius: 4px;

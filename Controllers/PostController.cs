@@ -27,6 +27,7 @@ namespace template_csharp_blog.Controllers
             return View(_context.Posts.Find(id));
         }
 
+        //Add
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Categories.ToList();
@@ -57,7 +58,13 @@ namespace template_csharp_blog.Controllers
             return RedirectToAction("Detail",new {id = post.Id});
         }
 
-
+        //Delete
+        public IActionResult Delete(int id)
+        {
+            _context.Posts.Remove(_context.Posts.Find(id));
+            _context.SaveChanges(); 
+            return RedirectToAction("Index");
+        }
 
     }
 }
