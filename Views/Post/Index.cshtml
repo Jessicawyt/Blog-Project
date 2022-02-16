@@ -11,6 +11,7 @@
         <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
         <span>@post.PublishDate</span><br>
         <span>@post.Author</span><br>
+        <a href="/Post/Edit/@post.Id">Edit</a>
         <p>@post.Body</p>
     </section>
     

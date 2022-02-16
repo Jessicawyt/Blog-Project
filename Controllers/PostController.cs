@@ -29,6 +29,7 @@ namespace template_csharp_blog.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories.ToList();
             return View();
         }
 
@@ -40,6 +41,23 @@ namespace template_csharp_blog.Controllers
             return RedirectToAction("Index");
         }
 
-     
+        //Edit
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Categories = _context.Categories.ToList();
+            
+            return View(_context.Posts.Find(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(Post post)
+        {
+            _context.Posts.Update(post);
+            _context.SaveChanges(true);
+
+            return RedirectToAction("Detail",new {id = post.Id});
+        }
+
+
+
     }
 }
