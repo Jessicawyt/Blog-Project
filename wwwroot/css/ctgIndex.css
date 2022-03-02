@@ -1,0 +1,14 @@
+﻿body {
+}
+
+.ctg-container {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-areas:
+
+
+}
+
+.ctg {
+    background-image: url("https://as2.ftcdn.net/v2/jpg/04/85/00/01/1000_F_485000118_Ndg8Y7fpYLBHZRklXKEmrkAg2JMNPwTX.jpg");
+}

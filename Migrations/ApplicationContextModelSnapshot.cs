@@ -26,6 +26,9 @@ namespace template_csharp_blog.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -37,16 +40,19 @@ namespace template_csharp_blog.Migrations
                         new
                         {
                             Id = 1,
+                            Image = "https://www.lifeofpix.com/wp-content/uploads/2018/07/lake-antholz-late-autumn-1600x1067.jpg",
                             Name = "Travel"
                         },
                         new
                         {
                             Id = 2,
+                            Image = "https://cdn.vox-cdn.com/thumbor/9qN-DmdwZE__GqwuoJIinjUXzmk=/0x0:960x646/1200x900/filters:focal(404x247:556x399)/cdn.vox-cdn.com/uploads/chorus_image/image/63084260/foodlife_2.0.jpg",
                             Name = "Food"
                         },
                         new
                         {
                             Id = 3,
+                            Image = "https://thehill.com/sites/default/files/ca_thankyou_multilingual_language_istock.jpg",
                             Name = "Language"
                         });
                 });

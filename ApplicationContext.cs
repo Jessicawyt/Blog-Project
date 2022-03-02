@@ -15,9 +15,9 @@ namespace template_csharp_blog
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Category>().HasData(new Category() { Id = 1, Name = "Travel" });
-            builder.Entity<Category>().HasData(new Category() { Id = 2, Name = "Food" });
-            builder.Entity<Category>().HasData(new Category() { Id = 3, Name = "Language" });
+            builder.Entity<Category>().HasData(new Category() { Id = 1, Name = "Travel",Image = "https://www.lifeofpix.com/wp-content/uploads/2018/07/lake-antholz-late-autumn-1600x1067.jpg" });
+            builder.Entity<Category>().HasData(new Category() { Id = 2, Name = "Food",Image = "https://www.helpguide.org/wp-content/uploads/hands-holding-veges-768.jpg" });
+            builder.Entity<Category>().HasData(new Category() { Id = 3, Name = "Language",Image = "https://thehill.com/sites/default/files/ca_thankyou_multilingual_language_istock.jpg" });
 
             builder.Entity<Post>().HasData(new Post() { Id = 1, CategoryId = 1, Title = "Complete Guide to hiking in Australia", Author = "Timothy Dean", Body = "Located just one hour north of Adelaide, the rolling hills of the Barossa Valley will captivate with their seemingly endless spread of Australian wineries. You’ll be impressed with the region’s unique varietals available to taste at exquisite cellar doors. When you’re not indulging in some of the world’s finest wine and food pairings,reside in a luxury hotel,or explore the picturesque cluster of villages,rolling hills,stone churches and vineyards by bike,vintage car,hot air balloon or even a helicopter.", PublishDate = new System.DateTime(2008,3,1,7,0,0) });
             builder.Entity<Post>().HasData(new Post() { Id = 2, CategoryId = 1, Title = "Hope on an amazing Elephant Ride in Vietnam", Author = "Jane Levan", Body = "At 115,545 hectares Yok Don National Park is the largest of Vietnam’s natural reserves and is home to wildlife including leopards, red wolves, muntjac deer, monkeys, snakes and wild elephants.The park is located in the Buon Don district in the province of Dak Lak,where the majority of tourist riding camps in Vietnam operate.The park offered elephant rides to tourists for many years, but had started to sense a growing government and community concern for elephant welfare.", PublishDate = new System.DateTime(2011,3,5,2,0,0) });

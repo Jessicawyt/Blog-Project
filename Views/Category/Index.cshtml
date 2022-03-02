@@ -1,13 +1,85 @@
 ﻿@model IEnumerable<Category>
 
+
+
 @{
-
+    Layout = null;
 }
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BlogIt</title>
+    <script src="https://kit.fontawesome.com/e268927a80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Barlow:wght@300&family=Chewy&family=Inconsolata:wght@200&family=Moo+Lah+Lah&family=Nanum+Pen+Script&family=Open+Sans:wght@300&family=Padauk:wght@400;700&family=Patrick+Hand&family=Shizuru&display=swap" rel="stylesheet">
+    <style>
+        .ctg {
+            transition:background 0.8s;
+            background-position:left center;
+            background-size:90vh auto;
+            background-repeat:no-repeat;
+            font-weight:bold;
+        }
 
-<section class="category-list">@foreach(Category ctg in Model)
-    {
-       <h2>@Html.ActionLink(ctg.Name,"ChosenIndex", "Post", new {categoryId = ctg.Id})</h2>
-    }
-    <h2>@Html.ActionLink("Add a new Category","Create")</h2>
-</section>
+        .ctg a{
+            margin-bottom:1.5px;
+        }
+
+        .ctg:hover {
+            background-position:center;
+            background-size:110vh auto;
+        }
+
+        .ctg:hover::before{
+            background-color: rgba(255,255,255,0.6);
+        }
+
+        .add-ctg{
+            background-color:#b9a0a06b;
+        }
+
+        .add-ctg a{
+            color:#272220d9;
+            font-size:3rem;
+        }
+
+    
+
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>BlogIt</h1>
+        <ul>
+            <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+        @*    <li>@Html.ActionLink("Posts", "Index", "Post")</li>*@
+            <li>@Html.ActionLink("New Post", "Create", "Post")</li>
+        </ul>
+    </nav>
+
+    <section class="ctg-container">@foreach(Category ctg in Model)
+        {
+            <section class="ctg" style="background-image: url('/uploads/@ctg.Image');">
+            
+                <h2 >@Html.ActionLink(ctg.Name,"ChosenIndex", "Post", new {categoryId = ctg.Id})</h2>
+                <div class="ctg-text">
+                    <a href="/Category/Edit/@ctg.Id">Edit Category</a>                   
+                    <a href="/Category/Delete/@ctg.Id">Delete Category</a>                   
+                    <a href="/Post/AddByCtgId/?categoryId=@ctg.Id">Write something here</a>
+                </div>
+            </section>
+       
+        }
+        
+        @*<a href="/Category/Create" class="ctg add-ctg"><i class="fa-solid fa-grid-2-plus"></i></a>*@
+        <h2 class="ctg add-ctg">@Html.ActionLink("Add a new Category","Create")</h2>
+    </section>
+
+    
+
+</body>
+</html>
