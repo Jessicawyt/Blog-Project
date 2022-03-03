@@ -90,9 +90,11 @@ namespace template_csharp_blog.Controllers
         //Delete
         public IActionResult Delete(int id)
         {
-            _context.Posts.Remove(_context.Posts.Find(id));
+            Post postToDelete = _context.Posts.Find(id);
+            
+            _context.Posts.Remove(postToDelete);
             _context.SaveChanges(); 
-            return RedirectToAction("Index");
+            return RedirectToAction("ChosenIndex","Post",new { categoryId = postToDelete.CategoryId});
         }
 
         public IActionResult AddByCtgId(int categoryId)
