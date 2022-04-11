@@ -1,0 +1,67 @@
+﻿@model Post
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BlogIt</title>
+    <script src="https://kit.fontawesome.com/e268927a80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Barlow:wght@300&family=Chewy&family=Inconsolata:wght@200&family=Moo+Lah+Lah&family=Nanum+Pen+Script&family=Open+Sans:wght@300&family=Padauk:wght@400;700&family=Patrick+Hand&family=Shizuru&display=swap" rel="stylesheet">
+    <style>
+        .post-detail::after {
+            content: ' ';
+            display: block;
+            background-image: url('/uploads/@ViewBag.CtgImg');
+            width: 100vw;
+            height: 10rem;
+            background-size: cover;
+            background-position: 70% 30%;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>BlogIt</h1>
+        <ul>
+            <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+            @*<li>@Html.ActionLink("Posts", "Index", "Post")</li>*@
+            <li>@Html.ActionLink("New Post", "Create", "Post")</li>
+        </ul>
+    </nav>
+
+
+<article class="post-container">
+    
+    <h2>@Model.Title</h2>
+    <div class="post-detail" >
+        <div class="detail-text">
+            <span class="author">@Model.Author</span>
+            <span class="publish-date">@Model.PublishDate</span>
+            <span class="edit"><a href="/Post/Edit/@Model.Id">Edit</a></span>
+            <span>|</span>
+            <span class="delete"><a href="/Post/Delete/@Model.Id" onclick="return confirm('Are you sure you want to delete this?');">Delete</a></span>
+        </div>
+    </div>
+    
+
+    <div class="post-content">
+        <a href="/Post/LastPost/@Model.Id"><i class="fa-solid fa-circle-left fa-lg"></i></a>
+        <p>@Model.Body</p>
+        <a href="/Post/NextPost/@Model.Id"><i class="fa-solid fa-circle-right fa-lg"></i></a>
+    </div>
+</article>
+
+</body>
+</html>
+

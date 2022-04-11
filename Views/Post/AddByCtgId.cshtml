@@ -1,0 +1,48 @@
+﻿@model template_csharp_blog.Models.Post
+
+@{
+    ViewData["Title"] = "AddByCtgId";
+}
+
+
+
+<h3>Create a new post under @ViewBag.Category</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddByCtgId">
+            <input asp-for="CategoryId" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="Title" class="control-label"></label>*@
+                <input asp-for="Title" class="form-control" placeholder="Title"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <label class="danger">@ViewBag.Error</label>
+
+            <div class="form-group">
+                @*<label asp-for="Author" class="control-label"></label>*@
+                <input asp-for="Author" class="form-control" placeholder="Autor" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <label class="danger">@ViewBag.Error</label>
+
+            <div class="form-group">
+                <textarea asp-for="Body" class="post-body" placeholder="Body"></textarea>
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <label class="danger">@ViewBag.Error</label>
+         
+          
+            <input type="submit" value="Create" class="btn btn-primary" />
+            
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

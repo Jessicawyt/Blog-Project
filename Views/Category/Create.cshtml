@@ -1,0 +1,28 @@
+﻿@model Category
+
+
+@{
+}
+
+
+<div class="background">
+    <h3>Create a new category</h3>
+    <hr />
+    <form asp-action="Create" enctype="multipart/form-data">
+        
+        <div class="form-group file">
+            <input asp-for="Name" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+
+        <div class="form-group file">
+            <input type="file" name="CtgImg" id="CtgImg" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+    
+        <input type="submit" value="Create" class="btn btn-primary" />
+    
+    </form>
+</div>

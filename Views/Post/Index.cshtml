@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Post>
+
+@{
+
+}
+
+<div class="posts-container">
+@foreach(Post post in Model)
+{
+    <div class="single-post" >
+        <section class="single-post-text">
+            <h2>@Html.ActionLink(post.Title, "Detail", new {id = post.Id})</h2>
+
+        </section>
+    </div>
+}
+</div>

@@ -1,0 +1,49 @@
+﻿@model Post
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="background">
+    <h3>Edit</h3>
+    <hr />
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <input asp-for="Author" class="form-control" placeholder="Author" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+
+        <div class="form-group">
+            <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+                <option selected disabled>Please choose a category</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+
+        <div class="form-group">           
+            <textarea asp-for="Title" class="post-body" placeholder="Title"></textarea>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+
+        <div class="form-group">
+            <textarea asp-for="Body" class="post-body" placeholder="Body"></textarea>
+            <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+        <label class="danger">@ViewBag.Error</label>
+
+        <input type="submit" value="Save" class="btn btn-primary" />
+    
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

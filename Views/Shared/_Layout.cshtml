@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BlogIt</title>
+    <script src="https://kit.fontawesome.com/e268927a80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Barlow:wght@300&family=Chewy&family=Inconsolata:wght@200&family=Moo+Lah+Lah&family=Nanum+Pen+Script&family=Open+Sans:wght@300&family=Padauk:wght@400;700&family=Patrick+Hand&family=Shizuru&display=swap" rel="stylesheet">
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <nav>
+        <h1>BlogIt</h1>
+        <ul>
+            <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+            @*<li>@Html.ActionLink("Posts", "Index", "Post")</li>*@
+            <li>@Html.ActionLink("New Post", "Create", "Post")</li>
+        </ul>
+    </nav>
+
+    
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+    
+
+    <footer>
+
+    </footer>
+</body>
+</html>
